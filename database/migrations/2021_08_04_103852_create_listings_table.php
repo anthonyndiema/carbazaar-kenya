@@ -15,7 +15,14 @@ class CreateListingsTable extends Migration
     {
         Schema::create('listings', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            //$table->timestamps();
+            $table->integer('cardetailid')->nullable();;
+            $table->integer('userid')->nullable();
+            $table->integer('vehlocationid')->nullable();
+            $table->integer('adid')->nullable();
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+
         });
     }
 

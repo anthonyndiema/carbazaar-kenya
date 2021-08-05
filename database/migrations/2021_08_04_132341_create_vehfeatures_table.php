@@ -15,7 +15,13 @@ class CreateVehfeaturesTable extends Migration
     {
         Schema::create('vehfeatures', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            //$table->timestamps();
+            $table->integer('listingid')->nullable();
+            $table->string('feature')->nullable();
+
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+
         });
     }
 

@@ -15,7 +15,24 @@ class CreateCardetailsTable extends Migration
     {
         Schema::create('cardetails', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            //$table->timestamps();
+            $table->string('duty')->nullable();
+            $table->double('mileage')->nullable();
+
+            $table->string('make_model')->nullable();
+
+            $table->double('price')->nullable();
+            $table->string('negotiable')->nullable();
+
+            $table->string('body_type')->nullable();
+            $table->string('transmission')->nullable();
+
+            $table->string('condition_type')->nullable();
+            $table->integer('make_year')->nullable();
+
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+
         });
     }
 

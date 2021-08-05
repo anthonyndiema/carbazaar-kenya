@@ -15,7 +15,15 @@ class CreateAddetailsTable extends Migration
     {
         Schema::create('addetails', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            //$table->timestamps();
+            $table->string('fuel_type')->nullable();
+            $table->string('interior_type')->nullable();
+            $table->string('color')->nullable();
+            $table->string('enginesize_cc')->nullable();
+            $table->string('descr')->nullable();
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+
         });
     }
 

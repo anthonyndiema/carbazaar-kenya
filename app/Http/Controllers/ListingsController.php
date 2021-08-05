@@ -309,8 +309,20 @@ class ListingsController extends Controller
                 $join->on('listings.vehlocationid', '=', 'vehlocation.id');
 
             })
+            ->leftJoin('make', function ($join) {
+                $join->on('cardetails.make_model', '=', 'make.id');
+
+            })
+            ->leftJoin('transmission', function ($join) {
+                $join->on('cardetails.transmission', '=', 'transmission.id');
+
+            })
+            ->leftJoin('contition', function ($join) {
+                $join->on('cardetails.condition_type', '=', 'contition.id');
+
+            })
             ->where('listings.userid', Auth::user()->id)
-            ->get(['listings.id AS id', 'cardetails.make_model AS make_model', 'cardetails.make_year as make_year', 'cardetails.condition_type AS condition_type', 'cardetails.transmission AS transmission', 'cardetails.price as price']);
+            ->get(['listings.id AS id', 'make.make AS make_model', 'cardetails.make_year as make_year', 'contition.contition AS condition_type', 'transmission.transmission AS transmission', 'cardetails.price as price']);
 
         return view('listings')->with(array('listings' => json_decode($listings, true)));
     }

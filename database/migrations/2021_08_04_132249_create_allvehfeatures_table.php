@@ -15,7 +15,12 @@ class CreateAllvehfeaturesTable extends Migration
     {
         Schema::create('allvehfeatures', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            //$table->timestamps();
+
+            $table->string('feature')->nullable();
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+
         });
     }
 
