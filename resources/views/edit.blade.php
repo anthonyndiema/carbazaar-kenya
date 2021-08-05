@@ -14,7 +14,7 @@
 
 </div>
 
-<form method="post" action="/edit2" enctype="multipart/form-data">
+<form method="post" id="data" enctype="multipart/form-data">
     <!-- Content Row -->
 
     @csrf
@@ -343,6 +343,27 @@
 <!-- Content Row -->
 
 <script>
+$("form#data").submit(function(e) {
+    e.preventDefault();
+    var formData = new FormData(this);
+
+    $.ajax({
+        url: "/edit2",
+        type: 'POST',
+        data: formData,
+        success: function(data) {
+            alert(data + "! You have successfully updated the listing!!");
+            window.location.href = "/listings";
+        },
+        cache: false,
+        contentType: false,
+        processData: false,
+        error: function(data) {
+            alert(data);
+        }
+    });
+});
+
 //del files
 function delpic(id2) {
     //alert(id2);

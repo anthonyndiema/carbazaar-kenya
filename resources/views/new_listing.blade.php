@@ -14,7 +14,7 @@
 
 </div>
 
-<form method="post" action="/create" enctype="multipart/form-data">
+<form method="post" id="data" enctype="multipart/form-data">
     <!-- Content Row -->
     @csrf
     <input type="hidden" value="{{ Auth::user()->id }}" name="userid" />
@@ -279,6 +279,27 @@
 <!-- Content Row -->
 
 <script>
+$("form#data").submit(function(e) {
+    e.preventDefault();
+    var formData = new FormData(this);
+
+    $.ajax({
+        url: "/create",
+        type: 'POST',
+        data: formData,
+        success: function(data) {
+            alert(data + "! You have successfully added the listing!!");
+            window.location.href = "/listings";
+        },
+        cache: false,
+        contentType: false,
+        processData: false,
+        error: function(data) {
+            alert(data);
+        }
+    });
+});
+
 // dragover and dragenter events need to have 'preventDefault' called
 // in order for the 'drop' event to register.
 // See: https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Drag_operations#droptargets

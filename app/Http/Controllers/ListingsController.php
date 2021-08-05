@@ -112,8 +112,8 @@ class ListingsController extends Controller
             }
         }
         $vehfeatures = DB::table('allvehfeatures')->get();
-
-        return back()->with(array('status' => "You have successfully created a listing. <a href='/view-listing?id=$listid'>Click here to check it out</a>", 'vehfeatures' => json_decode($vehfeatures, true)));
+        return "success";
+        //return back()->with(array('status' => "You have successfully created a listing. <a href='/view-listing?id=$listid'>Click here to check it out</a>", 'vehfeatures' => json_decode($vehfeatures, true)));
 
     }
     /**
@@ -208,8 +208,8 @@ class ListingsController extends Controller
             }
         }
         $vehfeatures = DB::table('allvehfeatures')->get();
-
-        return back()->with(array('status' => "You have successfully created a listing. ", 'vehfeatures' => json_decode($vehfeatures, true)));
+        return "success";
+        //return back()->with(array('status' => "You have successfully created a listing. ", 'vehfeatures' => json_decode($vehfeatures, true)));
 
     }
     public function edit()
