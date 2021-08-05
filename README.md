@@ -1,7 +1,7 @@
 
 To do: please read this first
 
-First: create database carbazaar on mysql/phpadmin
+First: create database carbazaar on mysql/phpmyadmin
 
 Second: run migration with seed
 
