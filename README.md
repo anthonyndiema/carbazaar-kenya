@@ -1,2 +1,2 @@
 # carbazaar-kenya
-car bazaar websiten for new listings - laravel application
+website for new car listings - laravel application
